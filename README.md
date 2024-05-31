@@ -13,7 +13,7 @@ Dashboard UI created using HTML and Pure CSS (no frameworks like Bootstrap or Ta
 - Vue3
 - Vue CLI
 - Font Awesome
-- Charts.js.
+- Charts.js
 
 ## Setup steps
 
