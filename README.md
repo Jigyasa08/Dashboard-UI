@@ -15,6 +15,19 @@ Dashboard UI created using HTML and Pure CSS (no frameworks like Bootstrap or Ta
 - Font Awesome
 - Charts.js
 
+### Project Structure
+
+- **public/**: Contains files that will be served directly by the web server.
+  
+- **src/**
+  - **assets/**: Contains uploaded assets.
+  - **components/**: Contains Vue components required for building this page.
+  - **App.vue**: The main Vue component.
+  - **main.js**: The entry point for Vue application.
+
+- **vue.config.js**: Configuration file for Vue CLI.
+
+
 ## Setup steps
 
 1. Clone the repository
