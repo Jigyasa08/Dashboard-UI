@@ -1,15 +1,24 @@
+`
 <template>
   <div class="stat-box">
     <h3>{{ title }}</h3>
     <p>{{ value }}</p>
-    <span class="trend">{{ icon }}{{ trend }}</span>
+    <span class="trend">
+      <font-awesome-icon :icon="icon" />
+      {{ trend }}
+    </span>
     <span class="subtitle">{{ subtitle }}</span>
   </div>
 </template>
 
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 export default {
   name: "StatBox",
+  components: {
+    FontAwesomeIcon,
+  },
   props: {
     title: {
       type: String,
@@ -20,7 +29,7 @@ export default {
       required: true,
     },
     icon: {
-      type: String,
+      type: Array,
       required: true,
     },
     trend: {
@@ -64,3 +73,4 @@ export default {
   font-size: 0.8em;
 }
 </style>
+`

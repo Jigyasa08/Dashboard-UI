@@ -12,6 +12,7 @@
           :key="stat.id"
           :title="stat.title"
           :value="stat.value"
+          :icon="stat.icon"
           :trend="stat.trend"
           :subtitle="stat.subtitle"
         />
@@ -126,6 +127,7 @@ export default {
           id: "1",
           title: "Document",
           value: "146,000",
+          icon: ["fas", "chart-line"],
           trend: "17%",
           subtitle: "Since last week",
         },
@@ -133,6 +135,7 @@ export default {
           id: "2",
           title: "Contact",
           value: "1,400",
+          icon: ["fas", "chart-line"],
           trend: "17%",
           subtitle: "Since last week",
         },
@@ -140,6 +143,7 @@ export default {
           id: "3",
           title: "Email",
           value: "150,700",
+          icon: ["fas", "chart-line"],
           trend: "17%",
           subtitle: "Since last week",
         },
