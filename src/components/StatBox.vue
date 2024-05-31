@@ -1,4 +1,3 @@
-`
 <template>
   <div class="stat-box">
     <h3>{{ title }}</h3>
@@ -73,4 +72,3 @@ export default {
   font-size: 0.8em;
 }
 </style>
-`
