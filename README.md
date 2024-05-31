@@ -26,11 +26,9 @@ HTML, Pure CSS, Vue3, Vue cli, Font Awesome, Charts.js.
     ```
 
 4. Run project, Compiles and hot-reloads for development
-
-### Compiles and hot-reloads for development
-```bash
-npm run serve
-```
+    ```bash
+    npm run serve
+    ```
 
 ### Compiles and minifies for production
 ```bash
