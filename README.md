@@ -1,4 +1,4 @@
-# Dashboard-Ui
+# Dashboard-UI
 
 ## Project Description
 
