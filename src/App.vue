@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import DashboardView from './components/DashboardView.vue'
+import DashboardView from "./components/DashboardView.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    DashboardView
-  }
-}
+    DashboardView,
+  },
+};
 </script>
 
 <style>

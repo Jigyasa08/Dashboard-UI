@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="lineChart"></canvas>
+  <canvas height="200" ref="lineChart"></canvas>
 </template>
 
 <script>
@@ -58,7 +58,7 @@ export default {
           ],
         },
         options: {
-          responsive: true,
+          responsive: false,
         },
       });
     });
@@ -73,7 +73,7 @@ export default {
 <style scoped>
 canvas {
   flex: 1 1 45%;
-  min-width: 300px;
+  width: 300px;
   height: 200px;
   background-color: white;
   border-radius: 5px;
