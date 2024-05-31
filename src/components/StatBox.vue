@@ -28,7 +28,7 @@ export default {
       required: true,
     },
     icon: {
-      type: Array,
+      type: Object,
       required: true,
     },
     trend: {

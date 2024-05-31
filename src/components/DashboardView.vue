@@ -42,6 +42,7 @@
 </template>
 
 <script>
+// eslint-disable no-unused-vars
 import NavBar from "./NavBar.vue";
 import StatBox from "./StatBox.vue";
 import LineChart from "./LineChart.vue";
@@ -49,8 +50,12 @@ import BarChart from "./BarChart.vue";
 import TableData from "./TableData.vue";
 import ProfileAvatar from "./ProfileAvatar.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { faBell } from "@fortawesome/free-solid-svg-icons";
+
+import {
+  faBell,
+  faChevronDown,
+  faBarChart,
+} from "@fortawesome/free-regular-svg-icons";
 import RightSidebar from "./RightSidebar.vue";
 
 export default {
@@ -127,7 +132,7 @@ export default {
           id: "1",
           title: "Document",
           value: "146,000",
-          icon: ["fas", "chart-line"],
+          icon: faBarChart,
           trend: "17%",
           subtitle: "Since last week",
         },
@@ -135,7 +140,7 @@ export default {
           id: "2",
           title: "Contact",
           value: "1,400",
-          icon: ["fas", "chart-line"],
+          icon: faBarChart,
           trend: "17%",
           subtitle: "Since last week",
         },
@@ -143,7 +148,7 @@ export default {
           id: "3",
           title: "Email",
           value: "150,700",
-          icon: ["fas", "chart-line"],
+          icon: faBarChart,
           trend: "17%",
           subtitle: "Since last week",
         },
