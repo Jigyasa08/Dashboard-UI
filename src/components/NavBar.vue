@@ -33,15 +33,12 @@ export default {
   flex-shrink: 0;
 }
 
-.sidebar h1 {
-  padding: 20px 50px;
-}
-
 nav {
   padding: 0 50px;
 }
 
 .sidebar h1 {
+  padding: 20px 50px;
   color: #ff4136;
   text-align: left;
   cursor: pointer;
