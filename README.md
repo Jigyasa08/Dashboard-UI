@@ -34,7 +34,7 @@ Dashboard UI created using HTML and Pure CSS (no frameworks like Bootstrap or Ta
 
 1. Clone the repository
     ```bash
-    git clone https://github.com/Jigyasa08/Dashboard-UI.git`
+    git clone https://github.com/Jigyasa08/Dashboard-UI.git
     ```
 2. Navigate to project base directory
     ```bash
