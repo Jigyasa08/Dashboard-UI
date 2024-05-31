@@ -213,5 +213,6 @@ header {
   fill: none;
   font-size: 1.2rem;
   margin-right: 10px;
+  cursor: pointer;
 }
 </style>

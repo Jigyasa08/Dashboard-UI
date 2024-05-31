@@ -44,6 +44,7 @@ nav {
 .sidebar h1 {
   color: #ff4136;
   text-align: left;
+  cursor: pointer;
 }
 
 .sidebar nav ul {
