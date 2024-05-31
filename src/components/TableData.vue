@@ -44,6 +44,10 @@ export default {
   /* overflow-y: auto; */
 }
 
+.documents h3 {
+  margin-left: 10px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

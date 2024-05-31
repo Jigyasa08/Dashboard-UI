@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, toRefs } from "vue";
 import {
   Chart,
   LineController,
@@ -25,7 +25,33 @@ Chart.register(
 
 export default {
   name: "LineChart",
-  setup() {
+  props: {
+    labels: {
+      type: Array,
+      required: true,
+    },
+    data: {
+      type: Array,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: function () {
+        return {
+          borderColor: "rgba(75, 192, 192, 1)",
+          borderWidth: 1,
+          fill: false,
+        };
+      },
+    },
+  },
+  setup(props) {
+    const { labels, data, title, options } = toRefs(props);
     const lineChart = ref(null);
 
     onMounted(() => {
@@ -33,27 +59,12 @@ export default {
       new Chart(ctx, {
         type: "line",
         data: {
-          labels: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
+          labels: labels.value,
           datasets: [
             {
-              label: "Recent Workflow",
-              data: [12, 19, 3, 5, 2, 3, 10, 15, 20, 25, 30, 35],
-              borderColor: "rgba(75, 192, 192, 1)",
-              borderWidth: 1,
-              fill: false,
+              label: title.value,
+              data: data.value,
+              ...options.value,
             },
           ],
         },

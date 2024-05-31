@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, toRefs } from "vue";
 import {
   Chart,
   BarController,
@@ -17,7 +17,31 @@ Chart.register(BarController, BarElement, LinearScale, Title, CategoryScale);
 
 export default {
   name: "BarChart",
-  setup() {
+  props: {
+    labels: {
+      type: Array,
+      required: true,
+    },
+    data: {
+      type: Array,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({
+        backgroundColor: "rgba(153, 102, 255, 0.6)",
+        borderColor: "rgba(153, 102, 255, 1)",
+        borderWidth: 1,
+      }),
+    },
+  },
+  setup(props) {
+    const { labels, data, title, options } = toRefs(props);
     const barChart = ref(null);
 
     onMounted(() => {
@@ -25,27 +49,12 @@ export default {
       new Chart(ctx, {
         type: "bar",
         data: {
-          labels: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
+          labels: labels.value,
           datasets: [
             {
-              label: "Recent Marketing",
-              data: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
-              backgroundColor: "rgba(153, 102, 255, 0.6)",
-              borderColor: "rgba(153, 102, 255, 1)",
-              borderWidth: 1,
+              label: title.value,
+              data: data.value,
+              ...options.value,
             },
           ],
         },

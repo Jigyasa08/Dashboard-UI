@@ -2,7 +2,8 @@
   <div class="stat-box">
     <h3>{{ title }}</h3>
     <p>{{ value }}</p>
-    <span>{{ subtitle }}</span>
+    <span class="trend">{{ icon }}{{ trend }}</span>
+    <span class="subtitle">{{ subtitle }}</span>
   </div>
 </template>
 
@@ -18,6 +19,14 @@ export default {
       type: [String, Number],
       required: true,
     },
+    icon: {
+      type: String,
+      required: true,
+    },
+    trend: {
+      type: [String, Number],
+      required: true,
+    },
     subtitle: {
       type: String,
       required: true,
@@ -29,10 +38,29 @@ export default {
 <style scoped>
 .stat-box {
   background-color: white;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   border-radius: 5px;
-  text-align: center;
   flex-grow: 1;
   min-width: 200px;
+}
+
+.stat-box h3 {
+  margin-bottom: 40px;
+}
+
+.stat-box p {
+  font-weight: bold;
+  font-size: 1.7em;
+  margin-bottom: 0px;
+}
+
+.trend {
+  font-size: 0.8em;
+  color: green;
+  margin-right: 10px;
+}
+
+.subtitle {
+  font-size: 0.8em;
 }
 </style>

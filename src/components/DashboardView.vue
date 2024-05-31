@@ -4,24 +4,38 @@
     <div class="main-content">
       <header>
         <h2>Overview</h2>
+        <font-awesome-icon class="bell-icon fa-regular" :icon="bellIcon" />
       </header>
       <section class="stats">
-        <StatBox title="Document" value="146,000" subtitle="Since last week" />
-        <StatBox title="Contact" value="1,400" subtitle="Since last week" />
-        <StatBox title="Email" value="150,700" subtitle="Since last week" />
+        <StatBox
+          v-for="stat in stats"
+          :key="stat.title"
+          :title="stat.title"
+          :value="stat.value"
+          :trend="stat.trend"
+          :subtitle="stat.subtitle"
+        />
       </section>
       <section class="charts">
-        <LineChart />
-        <BarChart />
+        <LineChart
+          :labels="lineChartLabels"
+          :data="lineChartData"
+          title="Recent Workflow"
+        />
+        <BarChart
+          :labels="barChartLabels"
+          :data="barChartData"
+          title="Recent Marketing"
+        />
       </section>
       <TableData :documents="documents" />
     </div>
     <div class="admin">
-      <div>
-        <span class="user-info">Administrator</span>
-        <FontAwesomeIcon :icon="faChevronDown" />
+      <div class="user-info">
+        <ProfileAvatar name="Administrator" fontWeight="" />
+        <FontAwesomeIcon class="icon" :icon="faChevronDown" />
       </div>
-      <div class="side-box"></div>
+      <RightSidebar />
     </div>
   </div>
 </template>
@@ -32,8 +46,11 @@ import StatBox from "./StatBox.vue";
 import LineChart from "./LineChart.vue";
 import BarChart from "./BarChart.vue";
 import TableData from "./TableData.vue";
+import ProfileAvatar from "./ProfileAvatar.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
+import RightSidebar from "./RightSidebar.vue";
 
 export default {
   name: "DashboardView",
@@ -44,10 +61,13 @@ export default {
     BarChart,
     TableData,
     FontAwesomeIcon,
+    ProfileAvatar,
+    RightSidebar,
   },
   data() {
     return {
       faChevronDown,
+      bellIcon: faBell,
       documents: [
         {
           name: "Annual Report",
@@ -71,6 +91,56 @@ export default {
           status: "Pending",
         },
       ],
+      lineChartLabels: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      lineChartData: [12, 19, 3, 5, 2, 3, 10, 15, 20, 25, 30, 35],
+      barChartLabels: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      barChartData: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
+      stats: [
+        {
+          title: "Document",
+          value: "146,000",
+          trend: "17%",
+          subtitle: "Since last week",
+        },
+        {
+          title: "Contact",
+          value: "1,400",
+          trend: "17%",
+          subtitle: "Since last week",
+        },
+        {
+          title: "Email",
+          value: "150,700",
+          trend: "17%",
+          subtitle: "Since last week",
+        },
+      ],
     };
   },
 };
@@ -83,38 +153,6 @@ export default {
   background-color: #f1f1f1;
   overflow-y: hidden;
 }
-
-/* .sidebar {
-  width: 250px;
-  background-color: #001f3f;
-  color: white;
-  flex-grow: 0;
-  flex-shrink: 0;
-} */
-
-/* .sidebar h1 {
-  padding: 20px 50px;
-} */
-
-/* nav {
-  padding: 0 50px;
-} */
-
-/* .sidebar h1 {
-  color: #ff4136;
-  text-align: left;
-} */
-
-/* .sidebar nav ul {
-  list-style-type: none;
-  padding: 0;
-  text-align: left;
-} */
-
-/* .sidebar nav ul li {
-  margin: 20px 0;
-  cursor: pointer;
-} */
 
 .main-content {
   width: 60%;
@@ -129,26 +167,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-bottom: 20px; */
 }
 
 .stats {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
 }
-
-/* .stat-box {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  flex: 1 1 30%;
-  text-align: center;
-  min-width: 200px;
-  flex-grow: 1;
-  flex-basis: 0;
-} */
 
 .charts {
   display: flex;
@@ -168,18 +193,22 @@ header {
 
 .admin {
   width: 15%;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .user-info {
-  padding: 10px;
+  display: flex;
   cursor: pointer;
 }
 
-.side-box {
-  background-color: white;
-  margin-top: 30px;
-  height: 70%;
-  border-radius: 5px;
+.icon {
+  margin: 15px;
+  font-size: 0.7em;
+}
+
+.bell-icon {
+  fill: none;
+  font-size: 1.2rem;
+  margin-right: 10px;
 }
 </style>
