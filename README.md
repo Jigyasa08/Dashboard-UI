@@ -4,7 +4,7 @@
 
 Dashboard UI created using HTML and Pure CSS (no frameworks like Bootstrap or Tailwind). The project uses Vue3.
 
-![Dashboard Screenshot](./src/assets/screenshot.png)
+![Dashboard Screenshot](./src/assets/Screenshot.png)
 
 
 
