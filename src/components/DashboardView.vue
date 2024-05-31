@@ -9,7 +9,7 @@
       <section class="stats">
         <StatBox
           v-for="stat in stats"
-          :key="stat.title"
+          :key="stat.id"
           :title="stat.title"
           :value="stat.value"
           :trend="stat.trend"
@@ -123,18 +123,21 @@ export default {
       barChartData: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
       stats: [
         {
+          id: "1",
           title: "Document",
           value: "146,000",
           trend: "17%",
           subtitle: "Since last week",
         },
         {
+          id: "2",
           title: "Contact",
           value: "1,400",
           trend: "17%",
           subtitle: "Since last week",
         },
         {
+          id: "3",
           title: "Email",
           value: "150,700",
           trend: "17%",
