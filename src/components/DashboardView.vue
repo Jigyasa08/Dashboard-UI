@@ -51,11 +51,8 @@ import TableData from "./TableData.vue";
 import ProfileAvatar from "./ProfileAvatar.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import {
-  faBell,
-  faChevronDown,
-  faBarChart,
-} from "@fortawesome/free-regular-svg-icons";
+import { faBell, faBarChart } from "@fortawesome/free-regular-svg-icons";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import RightSidebar from "./RightSidebar.vue";
 
 export default {
@@ -72,7 +69,7 @@ export default {
   },
   data() {
     return {
-      faChevronDown,
+      faChevronDown: faAngleDown,
       bellIcon: faBell,
       documents: [
         {
